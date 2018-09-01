@@ -51,11 +51,11 @@ const clovaSkillHandler = clova.Client
           const speechArry = [{
             lang: 'ja',
             type: 'PlainText',
-            value: `キーが${キー}、ジャンルが${ジャンル名}のセッションを開始します。`
+            value: `キーが${my_key}、ジャンルが${my_genre}のセッションを開始します。`
           },{
             lang: 'ja',
             type: 'PlainText',
-            value: `キーが${キー}、ジャンルが${ジャンル名}のセッションを開始します。`
+            value: `キーが${my_key}、ジャンルが${my_genre}のセッションを開始します。`
           }
           // clova.SpeechBuilder.createSpeechUrl('https://hackason1.herokuapp.com/jam_sounds/' + my_key + "_" +my_genre+ '.mp3')
           ]
