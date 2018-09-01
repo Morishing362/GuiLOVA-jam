@@ -59,8 +59,8 @@ const clovaSkillHandler = clova.Client
           }
           // clova.SpeechBuilder.createSpeechUrl('https://hackason1.herokuapp.com/jam_sounds/' + my_key + "_" +my_genre+ '.mp3')
           ]
-
           responseHelper.setSpeechList(speechArry)
+
         }else{
           responseHelper.setSimpleSpeech({
             lang: 'ja',
