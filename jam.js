@@ -24,7 +24,7 @@ const clovaSkillHandler = clova.Client
       case 'JamIntent':
         const slots = responseHelper.getSlots()
         // Slotに登録されていない星座はnullになる
-        if(slots.code_names == null || slots.genre_names == null) {
+        if(slots.code_names == undefined || slots.genre_names == undefined) {
           speech = {
             lang: 'ja',
             type: 'PlainText',
@@ -44,7 +44,7 @@ const clovaSkillHandler = clova.Client
         const key_list = ["E", "C", "A"]
         const genre_list = ["ブルース", "ファンク", "メタル"]
 
-        if (key_list.indexOf(slots.code_names)  >= 0 && genre_list.indexOf(slots.genre_names) >= 0){
+        if (key_list.indexOf(slots.code_names) >= 0 && genre_list.indexOf(slots.genre_names) >= 0){
           const my_key = slots.code_names
           const my_genre = slots.genre_names
 
@@ -53,7 +53,11 @@ const clovaSkillHandler = clova.Client
             type: 'PlainText',
             value: `キーが${キー}、ジャンルが${ジャンル名}のセッションを開始します。`
           }
-          // },
+        },{
+          lang: 'ja',
+          type: 'PlainText',
+          value: `キーが${キー}、ジャンルが${ジャンル名}のセッションを開始します。`
+        }
           // clova.SpeechBuilder.createSpeechUrl('https://hackason1.herokuapp.com/jam_sounds/' + my_key + "_" +my_genre+ '.mp3')
           ]
 
@@ -62,7 +66,7 @@ const clovaSkillHandler = clova.Client
           responseHelper.setSimpleSpeech({
             lang: 'ja',
             type: 'PlainText',
-            value: `キーとジャンルを`
+            value: `キーかジャンルが間違えています。`
           })
         }
         // responseHelper.setSimpleSpeech({
