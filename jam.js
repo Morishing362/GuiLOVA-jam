@@ -52,8 +52,12 @@ const clovaSkillHandler = clova.Client
             lang: 'ja',
             type: 'PlainText',
             value: `キーが${キー}、ジャンルが${ジャンル名}のセッションを開始します。`
-          },
-          clova.SpeechBuilder.createSpeechUrl('https://hackason1.herokuapp.com/jam_sounds/' + my_key + "_" +my_genre+ '.mp3')
+          },{
+            lang: 'ja',
+            type: 'PlainText',
+            value: `キーが${キー}、ジャンルが${ジャンル名}のセッションを開始します。`
+          }
+          // clova.SpeechBuilder.createSpeechUrl('https://hackason1.herokuapp.com/jam_sounds/' + my_key + "_" +my_genre+ '.mp3')
           ]
 
           responseHelper.setSpeechList(speechArry)
