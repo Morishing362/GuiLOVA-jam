@@ -24,7 +24,7 @@ const clovaSkillHandler = clova.Client
       case 'JamIntent':
         const slots = responseHelper.getSlots()
         // Slotに登録されていない星座はnullになる
-        if(slots.code_names == undefined || slots.genre_names == undefined) {
+        if(!slots.code_names || !slots.genre_names) {
           speech = {
             lang: 'ja',
             type: 'PlainText',
