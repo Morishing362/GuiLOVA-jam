@@ -41,8 +41,8 @@ const clovaSkillHandler = clova.Client
           break
         }
 
-        const key_list = ["E", "C", "A"]
-        const genre_list = ["ブルース", "ファンク", "メタル"]
+        const key_list = ["E", "C", "A", "D", "G"]
+        const genre_list = ["ブルース", "ファンク", "メタル", "アコースティック"]
 
         if (key_list.indexOf(slots.code_names) >= 0 && genre_list.indexOf(slots.genre_names) >= 0){
           const my_key = slots.code_names
