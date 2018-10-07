@@ -20,10 +20,8 @@ const clovaSkillHandler = clova.Client
     const intent = responseHelper.getIntentName();
     let speech;
     switch (intent) {
-      // ユーザーのインプットが星座だと判別された場合。第2引数はreprompt(入力が行われなかった場合の聞き返し)をするか否か。省略可。
       case 'JamIntent':
         const slots = responseHelper.getSlots()
-        // Slotに登録されていない星座はnullになる
         if(!slots.code_names || !slots.genre_names) {
           speech = {
             lang: 'ja',
@@ -32,12 +30,6 @@ const clovaSkillHandler = clova.Client
           }
           responseHelper.setSimpleSpeech(speech)
           responseHelper.setSimpleSpeech(speech, true)
-          // 下記でも可
-          /*
-          responseHelper.setSimpleSpeech(
-            clova.SpeechBuilder.createSpeechText(`星座に誤りがあります。他の星座でお試し下さい。`)
-          );
-          */
           break
         }
 
@@ -64,20 +56,6 @@ const clovaSkillHandler = clova.Client
             value: `キーかジャンルが間違えています。`
           })
         }
-        // responseHelper.setSimpleSpeech({
-        //   lang: 'ja',
-        //   type: 'PlainText',
-        //   value: `押さえ方は${my_output}です。${TEMPLATE_INQUIRY}`
-        // })
-        // responseHelper.setSimpleSpeech({
-        //   lang: 'ja',
-        //   type: 'PlainText',
-        //   value: `押さえ方は${my_output}です。${TEMPLATE_INQUIRY}`
-        // }, true)
-        // //音声の場所
-        // responseHelper.setSimpleSpeech(
-        //   clova.SpeechBuilder.createSpeechUrl('https://hackason1.herokuapp.com/' + slots.code_names + '.mp3')
-        // );
 
         break;
       // ビルトインインテント。ユーザーによるインプットが使い方のリクエストと判別された場合
